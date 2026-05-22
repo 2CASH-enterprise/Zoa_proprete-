@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ZOA Propreté – Entreprise de nettoyage professionnel personnalisé en Bretagne. Nettoyage de bureaux, immeubles, hôtels, commerces à Rennes et périphérie.">
+<meta name="keywords" content="entreprise de nettoyage Rennes, société de ménage Bretagne, nettoyage bureaux Rennes, nettoyage professionnel Bretagne, entreprise de propreté Rennes">
+<meta property="og:title" content="ZOA Propreté – Nettoyage professionnel personnalisé en Bretagne">
+<meta property="og:description" content="Service de nettoyage premium sur-mesure à Rennes et en Bretagne.">
+<title>ZOA Propreté – Nettoyage Professionnel Premium en Bretagne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --sage:        #5F7768;
+  --sage-hover:  #7F9485;
+  --sage-light:  #D6E2DA;
+  --sage-pale:   #EBF1ED;
+  --bg-main:     #F5F5F2;
+  --bg-alt:      #EFEDE5;
+  --bg-white:    #FFFFFF;
+  --text-dark:   #1C1E1B;
+  --text-mid:    #4A4F48;
+  --text-muted:  #8A9088;
+  --border:      #E2E0D8;
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --shadow-xs:   0 1px 3px rgba(28,30,27,0.06);
+  --shadow-sm:   0 4px 16px rgba(28,30,27,0.07);
+  --shadow-md:   0 12px 32px rgba(28,30,27,0.09);
+  --ease:        cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  color: var(--text-dark);
+  background: var(--bg-main);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 1160px; margin: 0 auto; padding: 0 2rem; }
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 1.25rem;
+}
+.tag::before {
+  content: '';
+  width: 20px; height: 1.5px;
+  background: var(--sage);
+  flex-shrink: 0;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* BOUTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-md);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.25s var(--ease), transform 0.2s var(--ease), box-shadow 0.25s var(--ease);
+}
+.btn-sage {
+  background: var(--sage);
+  color: #fff;
+}
+.btn-sage:hover {
+  background: var(--sage-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(95,119,104,0.28);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--text-dark);
+  border: 1.5px solid var(--border);
+}
+.btn-outline:hover {
+  border-color: var(--sage);
+  color: var(--sage);
+  transform: translateY(-1px);
+}
+.btn-white {
+  background: #fff;
+  color: var(--sage);
+}
+.btn-white:hover {
+  background: var(--sage-pale);
+  transform: translateY(-1px);
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.25rem 0;
+  transition: background 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+nav.scrolled {
+  background: rgba(245,245,242,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 var(--border);
+}
+.nav-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.nav-logo span { color: var(--sage); }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+}
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--sage); }
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger span { width: 22px; height: 1.5px; background: var(--text-dark); display: block; }
+
+/* HERO */
+#hero {
+  min-height: 100vh;
+  background: var(--bg-alt);
+  display: flex;
+  align-items: center;
+  padding: 8rem 0 6rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg-circle {
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(95,119,104,0.07) 0%, transparent 70%);
+  right: -100px; top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.hero-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--sage-pale);
+  border: 1px solid var(--sage-light);
+  color: var(--sage);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.1s forwards;
+}
+.hero-badge-pill::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--sage);
+  border-radius: 50%;
+}
+.hero-title {
+  font-size: clamp(2.6rem, 4.5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.2s forwards;
+}
+.hero-title .accent { color: var(--sage); }
+.hero-sub {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--text-mid);
+  line-height: 1.75;
+  max-width: 460px;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.35s forwards;
+}
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.5s forwards;
+}
+.hero-trust {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 3rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.65s forwards;
+}
+.trust-avatars { display: flex; }
+.trust-avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--bg-alt);
+  background: var(--sage-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--sage);
+  margin-right: -8px;
+}
+.trust-text { font-size: 0.8rem; color: var(--text-mid); font-weight: 400; }
+.trust-text strong { color: var(--text-dark); font-weight: 600; }
+.hero-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.3s forwards;
+}
+.hero-card {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+.hero-card.tall { grid-row: span 2; display: flex; flex-direction: column; justify-content: space-between; }
+.hero-card-icon {
+  width: 44px; height: 44px;
+  background: var(--sage-pale);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.hero-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem; }
+.hero-card p  { font-size: 0.78rem; color: var(--text-muted); line-height: 1.6; }
+.hero-card-num {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--sage);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-top: 1.5rem;
+}
+.hero-card-num-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+/* SECTIONS */
+.section-white { background: var(--bg-white); padding: 7rem 0; }
+.section-main  { background: var(--bg-main);  padding: 7rem 0; }
+.section-alt   { background: var(--bg-alt);   padding: 7rem 0; }
+
+.section-header { text-align: center; margin-bottom: 4rem; }
+.section-header.left { text-align: left; }
+.section-title-lg {
+  font-size: clamp(2rem, 3.5vw, 2.9rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+.section-sub {
+  font-size: 1rem;
+  color: var(--text-mid);
+  line-height: 1.75;
+  max-width: 520px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* À PROPOS */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.about-img-block {
+  width: 100%;
+  aspect-ratio: 1 / 1.1;
+  border-radius: var(--radius-xl);
+  position: relative;
+  overflow: hidden;
+}
+.about-img-block img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease);
+}
+.about-img-block:hover img { transform: scale(1.03); }
+.about-float-card {
+  position: absolute;
+  bottom: 1.5rem; right: -2rem;
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+}
+.about-float-card .num { font-size: 1.8rem; font-weight: 700; color: var(--sage); letter-spacing: -0.04em; line-height: 1; }
+.about-float-card .lbl { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem; }
+.about-text p { font-size: 1rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 1.25rem; }
+.about-values {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.value-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+.value-chip::before {
+  content: '';
+  width: 8px; height: 8px;
+  background: var(--sage);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* PERSONNALISÉ */
+.perso-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.steps { margin-top: 2.5rem; }
+.step {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.step:last-child { border-bottom: none; }
+.step-num {
+  width: 36px; height: 36px;
+  background: var(--sage-pale);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--sage);
+  flex-shrink: 0;
+}
+.step h4 { font-size: 0.95rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.3rem; }
+.step p  { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; }
+.perso-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.perso-card {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.perso-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.perso-card-icon { font-size: 1.5rem; margin-bottom: 0.9rem; }
+.perso-card h4 { font-size: 0.88rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.3rem; }
+.perso-card p  { font-size: 0.78rem; color: var(--text-muted); line-height: 1.6; }
+
+/* SERVICES */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.service-card {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow 0.25s var(--ease), transform 0.25s var(--ease), border-color 0.25s;
+}
+.service-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+  border-color: var(--sage-light);
+}
+.service-card-icon {
+  width: 52px; height: 52px;
+  background: var(--sage-pale);
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  transition: background 0.25s;
+}
+.service-card:hover .service-card-icon { background: var(--sage-light); }
+.service-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.01em;
+}
+.service-card p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.7; }
+
+/* POURQUOI */
+.pourquoi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 5rem;
+  align-items: start;
+}
+.arguments {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.arg {
+  padding: 1.75rem;
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow 0.25s var(--ease);
+}
+.arg:hover { box-shadow: var(--shadow-sm); }
+.arg-dot {
+  width: 10px; height: 10px;
+  background: var(--sage);
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+.arg h4 { font-size: 0.9rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.4rem; }
+.arg p  { font-size: 0.8rem; color: var(--text-muted); line-height: 1.65; }
+
+/* AVIS */
+.avis-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.avis-card {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.avis-stars { display: flex; gap: 3px; }
+.avis-stars span {
+  width: 14px; height: 14px;
+  background: var(--sage);
+  clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+}
+.avis-quote {
+  font-size: 0.92rem;
+  color: var(--text-mid);
+  line-height: 1.75;
+  font-style: italic;
+  flex: 1;
+}
+.avis-author { display: flex; align-items: center; gap: 0.75rem; }
+.avis-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--sage-pale);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--sage);
+  flex-shrink: 0;
+}
+.avis-name { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); }
+.avis-role { font-size: 0.73rem; color: var(--text-muted); }
+
+/* CTA BANNER */
+.cta-banner-inner {
+  background: var(--sage);
+  border-radius: var(--radius-xl);
+  padding: 5rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-banner-inner::before {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  top: -100px; right: -100px;
+  pointer-events: none;
+}
+.cta-banner-inner h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+  line-height: 1.15;
+  position: relative; z-index: 1;
+}
+.cta-banner-inner p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.75);
+  max-width: 440px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+  position: relative; z-index: 1;
+}
+.cta-banner-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative; z-index: 1;
+}
+
+/* BLOG */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.blog-card {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.blog-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+.blog-thumb {
+  height: 210px;
+  position: relative;
+  overflow: hidden;
+}
+.blog-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s var(--ease);
+}
+.blog-card:hover .blog-thumb img { transform: scale(1.05); }
+.blog-cat {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  background: var(--sage);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+}
+.blog-body { padding: 1.5rem; }
+.blog-date { font-size: 0.7rem; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500; }
+.blog-title { font-size: 1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.65rem; line-height: 1.4; letter-spacing: -0.01em; }
+.blog-excerpt { font-size: 0.8rem; color: var(--text-muted); line-height: 1.65; }
+.blog-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1.25rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--sage);
+  text-decoration: none;
+  transition: gap 0.2s;
+}
+.blog-link:hover { gap: 0.6rem; }
+
+/* CONTACT */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 5rem;
+  align-items: start;
+}
+.contact-info-text { font-size: 1rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 2.5rem; }
+.contact-detail { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+.contact-detail-icon {
+  width: 40px; height: 40px;
+  background: var(--sage-pale);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.contact-detail-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+.contact-detail-value { font-size: 0.92rem; font-weight: 500; color: var(--text-dark); }
+.contact-detail-value a { color: var(--sage); text-decoration: none; }
+.form-card {
+  background: var(--bg-white);
+  border-radius: var(--radius-xl);
+  padding: 2.75rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { margin-bottom: 1.1rem; }
+.form-group label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: var(--bg-main);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0.8rem 1rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--sage); background: #fff; }
+.form-group textarea { resize: vertical; min-height: 110px; }
+.form-submit { width: 100%; justify-content: center; margin-top: 0.5rem; font-size: 0.9rem; }
+.form-note { font-size: 0.72rem; color: var(--text-muted); text-align: center; margin-top: 0.75rem; }
+
+/* FOOTER */
+footer {
+  background: var(--text-dark);
+  color: rgba(255,255,255,0.5);
+  padding: 5rem 0 2.5rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 2.5rem;
+}
+.footer-logo { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 1rem; letter-spacing: -0.01em; }
+.footer-logo span { color: var(--sage-light); }
+.footer-desc { font-size: 0.85rem; line-height: 1.75; margin-bottom: 1.75rem; }
+.footer-socials { display: flex; gap: 0.6rem; }
+.social-link {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.social-link:hover { border-color: var(--sage-light); color: var(--sage-light); background: rgba(95,119,104,0.12); }
+.footer-col h5 {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 1.25rem;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.65rem; }
+.footer-col ul li a {
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-col ul li a:hover { color: var(--sage-light); }
+.footer-contact-item { font-size: 0.83rem; margin-bottom: 0.75rem; line-height: 1.6; }
+.footer-contact-item strong {
+  display: block;
+  color: rgba(255,255,255,0.7);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.15rem;
+}
+.footer-contact-item a { color: var(--sage-light); text-decoration: none; }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-bottom a { color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+.footer-bottom a:hover { color: var(--sage-light); }
+.footer-legal { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+/* WHATSAPP */
+.wa-float {
+  position: fixed;
+  bottom: 1.75rem; right: 1.75rem;
+  width: 54px; height: 54px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 200;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+  text-decoration: none;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s;
+}
+.wa-float:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.45); }
+.wa-float svg { width: 26px; height: 26px; fill: white; }
+.wa-pulse {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid rgba(37,211,102,0.4);
+  animation: pulse 2.5s infinite;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes pulse {
+  0%   { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.55); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .hero-inner    { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-right    { display: none; }
+  .about-grid    { grid-template-columns: 1fr; }
+  .about-float-card { right: 1rem; }
+  .perso-grid    { grid-template-columns: 1fr; gap: 3rem; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .pourquoi-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .contact-grid  { grid-template-columns: 1fr; gap: 3rem; }
+  .blog-grid     { grid-template-columns: 1fr 1fr; }
+  .avis-grid     { grid-template-columns: 1fr 1fr; }
+  .footer-grid   { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .cta-banner-inner { padding: 3.5rem 2rem; }
+  .section-white, .section-main, .section-alt { padding: 5rem 0; }
+}
+@media (max-width: 768px) {
+  nav { padding: 1rem 0; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-links.open {
+    display: flex; flex-direction: column;
+    position: fixed; inset: 0;
+    background: rgba(245,245,242,0.97);
+    backdrop-filter: blur(16px);
+    justify-content: center; align-items: center;
+    gap: 2rem; z-index: 99;
+  }
+  .nav-links.open a { font-size: 1.1rem; color: var(--text-dark); }
+  #hero { padding: 7rem 0 4rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  .avis-grid     { grid-template-columns: 1fr; }
+  .blog-grid     { grid-template-columns: 1fr; }
+  .arguments     { grid-template-columns: 1fr; }
+  .perso-cards   { grid-template-columns: 1fr; }
+  .footer-grid   { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .form-row      { grid-template-columns: 1fr; }
+  .hero-actions  { flex-direction: column; }
+  .cta-banner-actions { flex-direction: column; align-items: center; }
+  .section-white, .section-main, .section-alt { padding: 4rem 0; }
+  .about-float-card { position: static; margin-top: 1rem; display: inline-block; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">ZOA<span>.</span>Propreté</a>
+    <div class="nav-links" id="nav-links">
+      <a href="#about">À propos</a>
+      <a href="#services">Services</a>
+      <a href="#pourquoi">Nos engagements</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact" class="btn btn-sage" style="padding:0.6rem 1.25rem;font-size:0.82rem">Devis gratuit</a>
+    </div>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-circle"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge-pill">Nettoyage professionnel · Bretagne</div>
+      <h1 class="hero-title">
+        La propreté<br>
+        <span class="accent">personnalisée</span><br>
+        en Bretagne
+      </h1>
+      <p class="hero-sub">ZOA Propreté propose une approche sur-mesure du nettoyage professionnel à Rennes et en Bretagne. Qualité premium, conseil expert, disponibilité totale.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-sage">Demander un devis gratuit →</a>
+        <a href="tel:0769571240" class="btn btn-outline">☎ 07 69 57 12 40</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-avatars">
+          <div class="trust-avatar">ML</div>
+          <div class="trust-avatar">TG</div>
+          <div class="trust-avatar">SC</div>
+        </div>
+        <div class="trust-text"><strong>+50 clients</strong> nous font confiance en Bretagne</div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card tall">
+        <div>
+          <div class="hero-card-icon">✨</div>
+          <h4>Nettoyage sur-mesure</h4>
+          <p>Chaque intervention est pensée pour vos espaces, vos contraintes et vos exigences.</p>
+        </div>
+        <div>
+          <div class="hero-card-num">100%</div>
+          <div class="hero-card-num-label">Personnalisé</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">🏢</div>
+        <h4>6 secteurs</h4>
+        <p>Bureaux, hôtels, écoles, commerces…</p>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">⚡</div>
+        <h4>Réponse rapide</h4>
+        <p>Devis sous 24h, disponible 6j/7</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- À PROPOS -->
+<section class="section-white" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal" style="position:relative">
+        <div class="about-img-block">
+          <img
+            src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80"
+            alt="Professionnel de nettoyage ZOA Propreté"
+            loading="lazy"
+          >
+        </div>
+        <div class="about-float-card">
+          <div class="num">5★</div>
+          <div class="lbl">Satisfaction clients</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="tag">Notre histoire</div>
+        <h2 class="section-title-lg">Une entreprise à<br>taille humaine</h2>
+        <p>ZOA Propreté est née d'une conviction simple : chaque espace mérite une attention particulière. Basée à Rennes et active sur toute la Bretagne, nous intervenons chez des professionnels qui refusent le compromis sur la qualité.</p>
+        <p>Notre approche est celle du conseil autant que du nettoyage. Nous prenons le temps de comprendre vos espaces, vos contraintes et vos exigences pour concevoir une solution adaptée — jamais standardisée.</p>
+        <p>Flexibilité, rigueur et relation humaine sont au cœur de chaque intervention.</p>
+        <div class="about-values">
+          <div class="value-chip">Qualité premium</div>
+          <div class="value-chip">Disponibilité totale</div>
+          <div class="value-chip">Approche conseil</div>
+          <div class="value-chip">Relation humaine</div>
+          <div class="value-chip">Flexibilité</div>
+          <div class="value-chip">Satisfaction garantie</div>
+        </div>
+        <div style="margin-top:2.5rem">
+          <a href="#contact" class="btn btn-sage">Nous contacter →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONNALISÉ -->
+<section class="section-alt" id="personnalise">
+  <div class="container">
+    <div class="perso-grid">
+      <div class="reveal">
+        <div class="tag">Notre différence</div>
+        <h2 class="section-title-lg">Un service vraiment<br>sur-mesure</h2>
+        <p style="font-size:0.95rem;color:var(--text-mid);line-height:1.8;margin-bottom:0.5rem">Chez ZOA Propreté, il n'existe pas de formule standard. Chaque client bénéficie d'une solution pensée spécifiquement pour ses espaces et ses impératifs.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">01</div>
+            <div>
+              <h4>Audit & analyse</h4>
+              <p>Visite de vos locaux, compréhension de vos besoins spécifiques et de vos contraintes horaires.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <div>
+              <h4>Plan de nettoyage personnalisé</h4>
+              <p>Élaboration d'un protocole adapté à votre activité, vos fréquences et vos exigences.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <div>
+              <h4>Intervention & suivi qualité</h4>
+              <p>Équipe qualifiée, matériel professionnel, contrôle qualité et reporting régulier.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="perso-cards reveal">
+        <div class="perso-card">
+          <div class="perso-card-icon">🏢</div>
+          <h4>Analyse des locaux</h4>
+          <p>Visite préalable systématique pour comprendre vos espaces.</p>
+        </div>
+        <div class="perso-card">
+          <div class="perso-card-icon">📋</div>
+          <h4>Plan sur-mesure</h4>
+          <p>Protocole adapté à votre activité et vos exigences.</p>
+        </div>
+        <div class="perso-card">
+          <div class="perso-card-icon">⏱</div>
+          <h4>Flexibilité totale</h4>
+          <p>Horaires adaptés à vos impératifs opérationnels.</p>
+        </div>
+        <div class="perso-card">
+          <div class="perso-card-icon">✅</div>
+          <h4>Contrôle qualité</h4>
+          <p>Suivi rigoureux et satisfaction garantie à chaque visite.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section-main" id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="tag" style="justify-content:center">Ce que nous faisons</div>
+      <h2 class="section-title-lg">Nos domaines d'intervention</h2>
+      <p class="section-sub">Des solutions adaptées à chaque secteur d'activité, pour tous vos espaces professionnels en Bretagne.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-card-icon">🏬</div>
+        <h3>Immeubles & logements</h3>
+        <p>Entretien des parties communes, halls d'entrée, escaliers, parkings et espaces extérieurs de vos immeubles résidentiels.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-card-icon">💼</div>
+        <h3>Bureaux d'entreprises</h3>
+        <p>Nettoyage régulier de vos espaces de travail, salles de réunion, sanitaires et zones de vie. Discret, efficace, ponctuel.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-card-icon">🏨</div>
+        <h3>Hôtels & restaurants</h3>
+        <p>Prestations adaptées aux exigences du secteur hôtelier : chambres, espaces communs, cuisine professionnelle.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-card-icon">🏪</div>
+        <h3>Magasins & boutiques</h3>
+        <p>Mise en valeur de vos espaces commerciaux avec un entretien qui reflète l'image premium de votre enseigne.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-card-icon">🏫</div>
+        <h3>Établissements scolaires</h3>
+        <p>Nettoyage rigoureux et respectueux des normes d'hygiène pour écoles, lycées et universités en Bretagne.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-card-icon">🔨</div>
+        <h3>Nettoyage après travaux</h3>
+        <p>Remise en état complète après chantier : poussière, gravats fins, vitrages, sols — prêt à investir les lieux.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POURQUOI -->
+<section class="section-white" id="pourquoi">
+  <div class="container">
+    <div class="pourquoi-grid">
+      <div class="reveal">
+        <div class="tag">Nos atouts</div>
+        <h2 class="section-title-lg">Pourquoi choisir ZOA Propreté ?</h2>
+        <p style="font-size:0.95rem;color:var(--text-mid);line-height:1.8;margin-bottom:2rem">Dans un marché où les prestataires se ressemblent, ZOA Propreté se distingue par une approche radicalement différente : celle du partenaire plutôt que du simple exécutant.</p>
+        <a href="#contact" class="btn btn-sage">Demander un devis →</a>
+      </div>
+      <div class="arguments">
+        <div class="arg reveal">
+          <div class="arg-dot"></div>
+          <h4>Flexibilité maximale</h4>
+          <p>Adaptés à vos horaires et urgences. Interventions week-end et nocturnes possibles.</p>
+        </div>
+        <div class="arg reveal">
+          <div class="arg-dot"></div>
+          <h4>Disponibilité immédiate</h4>
+          <p>Un interlocuteur dédié pour chaque client. Vos demandes trouvent toujours une réponse rapide.</p>
+        </div>
+        <div class="arg reveal">
+          <div class="arg-dot"></div>
+          <h4>Qualité premium</h4>
+          <p>Matériel professionnel, produits certifiés, protocoles stricts à la hauteur de vos exigences.</p>
+        </div>
+        <div class="arg reveal">
+          <div class="arg-dot"></div>
+          <h4>Conseils personnalisés</h4>
+          <p>Nos experts vous accompagnent sur les meilleures pratiques d'entretien.</p>
+        </div>
+        <div class="arg reveal">
+          <div class="arg-dot"></div>
+          <h4>Satisfaction garantie</h4>
+          <p>En cas d'insatisfaction, nous revenons sans frais supplémentaires.</p>
+        </div>
+        <div class="arg reveal">
+          <div class="arg-dot"></div>
+          <h4>Ancrage local</h4>
+          <p>Entreprise bretonne, nous intervenons rapidement sur toute la région.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS -->
+<section class="section-alt" id="avis">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="tag" style="justify-content:center">Témoignages</div>
+      <h2 class="section-title-lg">Ce que disent nos clients</h2>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card reveal">
+        <div class="avis-stars"><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="avis-quote">"Une équipe sérieuse, ponctuelle et vraiment à l'écoute. Nos bureaux n'ont jamais été aussi propres. Je recommande sans hésitation."</p>
+        <div class="avis-author">
+          <div class="avis-avatar">ML</div>
+          <div>
+            <div class="avis-name">Marie L.</div>
+            <div class="avis-role">Directrice, cabinet conseil – Rennes</div>
+          </div>
+        </div>
+      </div>
+      <div class="avis-card reveal">
+        <div class="avis-stars"><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="avis-quote">"Après les travaux de rénovation de notre commerce, ZOA a fait un travail remarquable. Impeccable du sol au plafond, en un temps record."</p>
+        <div class="avis-author">
+          <div class="avis-avatar">TG</div>
+          <div>
+            <div class="avis-name">Thomas G.</div>
+            <div class="avis-role">Gérant de boutique – Saint-Malo</div>
+          </div>
+        </div>
+      </div>
+      <div class="avis-card reveal">
+        <div class="avis-stars"><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="avis-quote">"La flexibilité de ZOA Propreté est incomparable. Ils s'adaptent parfaitement à nos contraintes hôtelières. Un partenaire de confiance."</p>
+        <div class="avis-author">
+          <div class="avis-avatar">SC</div>
+          <div>
+            <div class="avis-name">Sophie C.</div>
+            <div class="avis-role">Responsable – Hôtel Rennes Centre</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-main">
+  <div class="container">
+    <div class="cta-banner-inner reveal">
+      <h2>Votre espace mérite<br>un entretien d'exception</h2>
+      <p>Obtenez votre devis personnalisé et gratuit en 24h. Nos experts analysent vos besoins et vous proposent une solution sur-mesure.</p>
+      <div class="cta-banner-actions">
+        <a href="#contact" class="btn btn-white">Demander un devis gratuit →</a>
+        <a href="tel:0769571240" class="btn" style="background:rgba(255,255,255,0.12);color:#fff;border:1.5px solid rgba(255,255,255,0.25)">☎ Appeler maintenant</a>
+        <a href="https://wa.me/33769571240" class="btn" style="background:rgba(255,255,255,0.12);color:#fff;border:1.5px solid rgba(255,255,255,0.25)" target="_blank">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="section-white" id="blog">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="tag" style="justify-content:center">Conseils & expertise</div>
+      <h2 class="section-title-lg">Notre blog</h2>
+      <p class="section-sub">Astuces, conseils professionnels et actualités du nettoyage pour vos espaces.</p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <div class="blog-thumb">
+          <img
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=80"
+            alt="Bureaux propres et lumineux"
+            loading="lazy"
+          >
+          <span class="blog-cat">Bureaux</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-date">15 janvier 2025</div>
+          <h3 class="blog-title">5 raisons de confier l'entretien de vos bureaux à un professionnel</h3>
+          <p class="blog-excerpt">Un espace de travail propre améliore la productivité, l'image et le bien-être des collaborateurs.</p>
+          <a href="#blog" class="blog-link">Lire l'article →</a>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-thumb">
+          <img
+            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&q=80"
+            alt="Chantier après travaux à nettoyer"
+            loading="lazy"
+          >
+          <span class="blog-cat">Après travaux</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-date">3 février 2025</div>
+          <h3 class="blog-title">Nettoyage après travaux : les étapes essentielles à ne pas négliger</h3>
+          <p class="blog-excerpt">Une rénovation réussie se conclut par un nettoyage de chantier rigoureux. Découvrez notre protocole.</p>
+          <a href="#blog" class="blog-link">Lire l'article →</a>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-thumb">
+          <img
+            src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=700&q=80"
+            alt="Hygiène et propreté en entreprise"
+            loading="lazy"
+          >
+          <span class="blog-cat">Hygiène</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-date">20 février 2025</div>
+          <h3 class="blog-title">Hygiène en entreprise : les standards d'un environnement sain en 2025</h3>
+          <p class="blog-excerpt">Entre nouvelles normes sanitaires et exigences des salariés, la propreté est devenue stratégique.</p>
+          <a href="#blog" class="blog-link">Lire l'article →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section-alt" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="tag">Nous contacter</div>
+        <h2 class="section-title-lg">Demandez votre<br>devis gratuit</h2>
+        <p class="contact-info-text">Parlez-nous de votre projet. Nous vous répondons sous 24h avec une proposition personnalisée et sans engagement.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">☎</div>
+          <div>
+            <div class="contact-detail-label">Téléphone</div>
+            <div class="contact-detail-value"><a href="tel:0769571240">07 69 57 12 40</a></div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✉</div>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-value"><a href="mailto:contact@zoa-proprete.fr">contact@zoa-proprete.fr</a></div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div>
+            <div class="contact-detail-label">Zone d'intervention</div>
+            <div class="contact-detail-value">Rennes & Bretagne</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🕐</div>
+          <div>
+            <div class="contact-detail-label">Horaires</div>
+            <div class="contact-detail-value">Lun–Sam · 7h – 20h</div>
+          </div>
+        </div>
+        <div style="margin-top:2rem;display:flex;gap:0.75rem;flex-wrap:wrap">
+          <a href="https://wa.me/33769571240" class="btn btn-sage" target="_blank" style="font-size:0.82rem">💬 WhatsApp</a>
+          <a href="tel:0769571240" class="btn btn-outline" style="font-size:0.82rem">☎ Rappel immédiat</a>
+        </div>
+      </div>
+      <div class="form-card reveal">
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Prénom *</label>
+              <input type="text" placeholder="Jean" required>
+            </div>
+            <div class="form-group">
+              <label>Nom *</label>
+              <input type="text" placeholder="Dupont" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" placeholder="jean@entreprise.fr" required>
+            </div>
+            <div class="form-group">
+              <label>Téléphone</label>
+              <input type="tel" placeholder="06 XX XX XX XX">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Entreprise / Établissement</label>
+            <input type="text" placeholder="Nom de votre société">
+          </div>
+          <div class="form-group">
+            <label>Type de prestation *</label>
+            <select required>
+              <option value="">Sélectionner une prestation</option>
+              <option>Nettoyage de bureaux</option>
+              <option>Nettoyage d'immeuble</option>
+              <option>Nettoyage après travaux</option>
+              <option>Hôtel / Restaurant</option>
+              <option>Commerce / Boutique</option>
+              <option>Établissement scolaire</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Votre projet *</label>
+            <textarea placeholder="Décrivez vos besoins : surface approximative, fréquence souhaitée, contraintes particulières…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-sage form-submit">Envoyer ma demande →</button>
+          <p class="form-note">Réponse garantie sous 24h · Sans engagement</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">ZOA<span>.</span>Propreté</div>
+        <p class="footer-desc">Votre partenaire de confiance pour un nettoyage professionnel personnalisé en Bretagne. Qualité premium, disponibilité totale, relation humaine.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="Instagram">ig</a>
+          <a href="#" class="social-link" aria-label="Facebook">fb</a>
+          <a href="https://wa.me/33769571240" class="social-link" aria-label="WhatsApp" target="_blank">wa</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Bureaux & entreprises</a></li>
+          <li><a href="#services">Immeubles & logements</a></li>
+          <li><a href="#services">Hôtels & restaurants</a></li>
+          <li><a href="#services">Commerces & boutiques</a></li>
+          <li><a href="#services">Établissements scolaires</a></li>
+          <li><a href="#services">Après travaux</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Entreprise</h5>
+        <ul>
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#pourquoi">Nos engagements</a></li>
+          <li><a href="#avis">Témoignages</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Devis gratuit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <div class="footer-contact-item">
+          <strong>Téléphone</strong>
+          <a href="tel:0769571240">07 69 57 12 40</a>
+        </div>
+        <div class="footer-contact-item">
+          <strong>Email</strong>
+          <a href="mailto:contact@zoa-proprete.fr">contact@zoa-proprete.fr</a>
+        </div>
+        <div class="footer-contact-item"><strong>Zone</strong>Rennes & Bretagne</div>
+        <div class="footer-contact-item"><strong>Horaires</strong>Lun–Sam · 7h – 20h</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>
+        <div>© 2025 ZOA Propreté · Tous droits réservés</div>
+        <div style="font-size:0.7rem;color:rgba(255,255,255,0.2);margin-top:0.25rem">RCS 891 168 445 · Code NAF 8121Z</div>
+      </div>
+      <div class="footer-legal">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="politique-confidentialite.html">Politique de confidentialité</a>
+        <a href="cgv.html">CGV</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/33769571240" class="wa-float" target="_blank" aria-label="Contacter par WhatsApp">
+  <div class="wa-pulse"></div>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+function toggleMenu() {
+  document.getElementById('nav-links').classList.toggle('open');
+}
+document.querySelectorAll('#nav-links a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('nav-links').classList.remove('open'));
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 70);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  const original = btn.textContent;
+  btn.textContent = '✓ Demande envoyée avec succès !';
+  btn.style.background = '#3B6D11';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = original;
+    btn.style.background = '';
+    btn.disabled = false;
+    e.target.reset();
+  }, 4000);
+}
+</script>
+</body>
+</html>
